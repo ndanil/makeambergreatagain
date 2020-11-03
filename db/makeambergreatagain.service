@@ -1,0 +1,17 @@
+[Unit]
+Description=makeambergreatagain
+After=syslog.target network.target rc-local.service network-online.target 
+
+[Service]
+User=root
+Group=root
+PrivateTmp=true
+Type=simple
+
+WorkingDirectory=/home/ysbot/makeambergreatagain
+Restart=always
+ExecStart=/usr/bin/python3 /home/ysbot/makeambergreatagain/main.py
+SendSIGHUP = no
+
+[Install]
+WantedBy=multi-user.target
